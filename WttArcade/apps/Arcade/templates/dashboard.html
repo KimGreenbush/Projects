@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/style.css'%} " />
+	</head>
+	<body>
+		<nav>
+			<a href="">Arcade</a>
+			<a href="">Logout</a>
+		</nav>
+
+		<header>
+			<h1>Welcome {{player.username}}</h1>
+		</header>
+
+		<main>
+			<div class="scoreboard">
+				<h2>Scoreboard</h2>
+				<p>{game1 : top score}</p>
+				<p>{game2 : top score}</p>
+				<p>{game3 : top score}</p>
+			</div>
+
+			<div class="friends">
+				<h2>Friend List</h2>
+				<p>{friend1}</p>
+				<p>{friend2}</p>
+				<p>{friend3}</p>
+			</div>
+        </main>
+
+	</body>
+</html>

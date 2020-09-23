@@ -34,7 +34,7 @@ class Player(models.Model):
     username = models.CharField(max_length=20)
     email = models.EmailField(max_length=50)
     password = models.CharField(max_length=100)
-    friend = models.ManyToManyField(Player, related_name='friends')
+    friends = models.ManyToManyField(Player, related_name='friends')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     #scores

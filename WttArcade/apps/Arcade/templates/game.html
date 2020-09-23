@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/style.css'%} " />
+	</head>
+	<body>
+		<nav>
+            <a href="">Arcade</a>
+			<a href="">Dashboard</a>
+			<a href="">Logout</a>
+		</nav>
+
+		<header>
+                <h1>{Game name}</h1>
+		</header>
+
+		<main>
+			<div class="game">
+                <p>Snake</p>
+                <button>Start</button>
+                <button>Next level</button>
+                <button>Add Score and Exit</button>
+				<p>{the game}</p>
+				<p>{score}</p>
+			</div>
+			<div class="leaderboard">
+				<p>{leaderboard}</p>
+				<p>{top score1}</p>
+				<p>{top score2}</p>
+				<p>{top score3}</p>
+				<p>{top score4}</p>
+				<p>{top score5}</p>
+			</div>
+        </main>
+
+	</body>
+</html>

@@ -3,8 +3,15 @@ from .models import *
 import bcrypt
 from django.contrib import messages
 
+#render
 def index(request):
     return render(request, 'index.html')
+
+def dashboard(request, player_id):
+    context = {
+        "player" : Player.objects.get(id=player_id)
+    }
+    return render(request, 'dashboard.html', context)
 
 # Register/Login/Logout
 def register(request):
