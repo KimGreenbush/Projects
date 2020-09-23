@@ -34,7 +34,7 @@ class Player(models.Model):
     username = models.CharField(max_length=20)
     email = models.EmailField(max_length=50)
     password = models.CharField(max_length=100)
-    friends = models.ManyToManyField(Player, related_name='friends')
+    friends = models.ManyToManyField('Player', related_name='friendships')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     #scores
@@ -45,7 +45,7 @@ class Player(models.Model):
 
 class Game(models.Model):
     title = models.CharField(max_length=30)
-    score = models.ForeignKey(Player, related_name='scores', on_delete=models.CASCADE())
+    score = models.ForeignKey(Player, related_name='scores', on_delete=models.CASCADE)
     player = models.ManyToManyField(Player, related_name='games')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

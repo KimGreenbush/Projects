@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import *
+import bcrypt
+from django.contrib import messages
 
-# Create your views here.
+#render
+def index(request):
+    return render(request, 'index.html')
