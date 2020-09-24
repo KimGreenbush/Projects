@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, li>a, .dropdown-menu, .form-group, .btn, .form-control {
+    color: rgb(245, 236, 160);
+    background-color: rgb(15, 15, 15);
+}
+
+.dropdown-menu {
+    width: 220px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.btn, .form-control {
+    border: 1px solid rgb(245, 236, 160);
+}
+
+/* figure put input focus highlight */
+/* input:focus {
+    outline: rgb(245, 236, 160);
+} */
+
+.btn:hover, a:focus, a:hover {
+    background-color: rgb(245, 236, 160);
+    color: rgb(15, 15, 15);
+    font-weight: bold;
+}
+
+h1, h2 {
+    font-size: 6em;
+    border: 5px dashed;
+}
+
+h2 {
+    font-size: 4em;
+    border: 2px dashed;
+}
