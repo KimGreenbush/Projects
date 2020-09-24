@@ -8,6 +8,14 @@ body, li>a, .dropdown-menu, .form-group, .btn, .form-control {
     background-color: rgb(15, 15, 15);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color:  rgb(245, 236, 160);
+    -webkit-box-shadow: 0 0 0px 1000px rgb(15, 15, 15) inset;
+    box-shadow: 0 0 0px 1000px rgb(15, 15, 15) inset;
+}
+
 .dropdown-menu {
     width: 220px;
     padding-left: 10px;
@@ -17,11 +25,6 @@ body, li>a, .dropdown-menu, .form-group, .btn, .form-control {
 .btn, .form-control {
     border: 1px solid rgb(245, 236, 160);
 }
-
-/* figure put input focus highlight */
-/* input:focus {
-    outline: rgb(245, 236, 160);
-} */
 
 .btn:hover, a:focus, a:hover {
     background-color: rgb(245, 236, 160);

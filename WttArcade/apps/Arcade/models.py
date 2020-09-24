@@ -7,8 +7,8 @@ class PlayerManager(models.Manager):
     def register_validator(self, postData):
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         errors = {}
-        if len(postData['username']) < 5:
-            errors['username'] = "First name must be at least 5 characters."
+        if len(postData['username']) < 3:
+            errors['username'] = "First name must be at least 3 characters."
         if not EMAIL_REGEX.match(postData['email']):
             errors['email'] = "Email not valid."
         elif Player.objects.filter(email=postData['email']).exists():
