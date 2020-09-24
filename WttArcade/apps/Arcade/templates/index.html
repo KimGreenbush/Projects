@@ -19,6 +19,13 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Register <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<div class="form-group">
+								{% if messages %}
+									<ul class="messages">
+										{% for message in messages %}
+										<li {% if message.tags%} class="{{messages.tags}}"{% endif %}>{% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %} {{message}} {% endif %}</li>
+										{% endfor %}
+									</ul>
+									{% endif %}
 								<form action="/register/" method="post">
 									{% csrf_token %}
 								<div class="form-group">
@@ -47,6 +54,13 @@
 							><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<div class="form-group">
+								{% if messages %}
+									<ul class="messages">
+										{% for message in messages %}
+										<li {% if message.tags%} class="{{messages.tags}}"{% endif %}>{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} {{message}} {% endif %}</li>
+										{% endfor %}
+									</ul>
+									{% endif %}
 								<form action="/login/" method="post">
 								{% csrf_token %}
 								<div class="form-group">

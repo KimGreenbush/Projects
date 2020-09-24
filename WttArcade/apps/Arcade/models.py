@@ -8,14 +8,14 @@ class PlayerManager(models.Manager):
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         errors = {}
         if len(postData['username']) < 3:
-            errors['username'] = "First name must be at least 3 characters."
+            errors['username'] = "Username must be at least 3 characters."
         if not EMAIL_REGEX.match(postData['email']):
             errors['email'] = "Email not valid."
-        elif Player.objects.filter(email=postData['email']).exists():
+        if Player.objects.filter(email=postData['email']).exists():
             errors['email'] = "Email error."
         if len(postData['password']) < 8:
             errors['password'] = "Password must be at least 8 characters."
-        elif postData['password'] != postData['pass_confirm']:
+        if postData['password'] != postData['pass_confirm']:
             errors['pass_confirm'] = "Passwords do not match."
         return errors
     def login_validator(self, postData):

@@ -5,13 +5,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 		{% load static %}
-		<link rel="stylesheet" href="{% static 'css/style.css'%} " />
+		<link rel="stylesheet" href="{% static 'css/style_arcade.css' %} " />
 	</head>
 	<body>
-		<nav>
-			<a href="">Dashboard</a>
-			<a href="">Logout</a>
+
+	<nav class="navbar">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/dashboard"><span class="glyphicon glyphicon-list-alt"></span> Dashboard</a></li>
+					<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				</ul>
+			</div>
 		</nav>
 
 		<header>

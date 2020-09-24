@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, li>a {
+    color: rgb(245, 236, 160);
+    background-color: rgb(15, 15, 15);
+}
+
+a:focus, a:hover, .btn:hover  {
+    background-color: rgb(245, 236, 160);
+    color: rgb(15, 15, 15);
+    font-weight: bold;
+}
+
+.btn {
+    border: 1px solid rgb(245, 236, 160);
+    color: rgb(245, 236, 160);
+    background-color: rgb(15, 15, 15);
+}
+
+h1 {
+    font-size: 4em;
+    border-bottom: 3px dashed;
+}
+
+h2 {
+    font-size: 3em;
+}
