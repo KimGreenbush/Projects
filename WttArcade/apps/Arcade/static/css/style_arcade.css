@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-body, li>a {
+body, a {
     color: rgb(245, 236, 160);
     background-color: rgb(15, 15, 15);
 }
@@ -15,16 +15,25 @@ a:focus, a:hover, .btn:hover  {
 }
 
 .btn {
-    border: 1px solid rgb(245, 236, 160);
+    font-weight: bold;
+    font-size: 1.8em;
+    border: 2px solid rgb(245, 236, 160);
     color: rgb(245, 236, 160);
     background-color: rgb(15, 15, 15);
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 5em;
     border-bottom: 3px dashed;
 }
 
 h2 {
     font-size: 3em;
+}
+
+.game {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px dashed;
 }

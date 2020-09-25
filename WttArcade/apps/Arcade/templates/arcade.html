@@ -14,42 +14,58 @@
 	</head>
 	<body>
 
-	<nav class="navbar">
+		<nav class="navbar">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/dashboard"><span class="glyphicon glyphicon-list-alt"></span> Dashboard</a></li>
-					<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					<li>
+						<a href="/dashboard/{{player.id}}"><span class="glyphicon glyphicon-list-alt"></span> Dashboard</a>
+					</li>
+					<li>
+						<a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+					</li>
 				</ul>
 			</div>
 		</nav>
 
 		<header>
-			<h1>The Arcade</h1>
+			<h1 class="col-md-12 text-center">The Arcade</h1>
 		</header>
 
-		<main>
-			<div class="game">
-				<p>Snake</p>
-				<p>{leaderboard}</p>
-				<p>{top score1}</p>
-				<p>{top score2}</p>
-				<p>{top score3}</p>
+		<main class="text-center">
+			<div class="col-sm-6 col-md-4">
+				<p><a class="btn " href="/arcade/snake" role="button">Snake</a></p>
+				<div>
+				<div class="game">
+					<p>{leaderboard}</p>
+					<p>{top score1}</p>
+					<p>{top score2}</p>
+					<p>{top score3}</p>
+				</div>
+				</div>
 			</div>
-			<div class="game">
-				<p>Tetris</p>
-				<p>{leaderboard}</p>
-				<p>{top score1}</p>
-				<p>{top score2}</p>
-				<p>{top score3}</p>
+			<div class="col-sm-6 col-md-4">
+				<p><a class="btn" href="/arcade/pacman" role="button">PacMan</a></p>
+				<div>
+				<div class="game">
+					<p>{leaderboard}</p>
+					<p>{top score1}</p>
+					<p>{top score2}</p>
+					<p>{top score3}</p>
+				</div>
+				</div>
 			</div>
-			<div class="game">
-				<p>PacMan</p>
-				<p>{leaderboard}</p>
-				<p>{top score1}</p>
-				<p>{top score2}</p>
-				<p>{top score3}</p>
+			<div class="col-sm-6 col-md-4">
+				<p><a class="btn" href="/arcade/tetris" role="button">Tetris</a></p>
+				<div>
+				<div class="game">
+					<p>{leaderboard}</p>
+					<p>{top score1}</p>
+					<p>{top score2}</p>
+					<p>{top score3}</p>
+				</div>
+				</div>
 			</div>
-        </main>
+		</main>
 
 	</body>
 </html>

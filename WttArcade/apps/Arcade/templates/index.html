@@ -26,7 +26,7 @@
 										{% endfor %}
 									</ul>
 									{% endif %}
-								<form action="/register/" method="post">
+								<form action="{% url 'arcade:register' %}" method="post">
 									{% csrf_token %}
 								<div class="form-group">
 									<label for="username">Username:</label>

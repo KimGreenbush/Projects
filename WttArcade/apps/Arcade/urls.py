@@ -8,6 +8,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
-    path('arcade/', views.arcade, name='arcade'),
+    path('dashboard/', views.dashboard_redirect, name='dashboard_redirect'),
     path('dashboard/<int:player_id>/', views.dashboard, name='dashboard'),
+    path('arcade/', views.arcade, name='arcade')
 ]

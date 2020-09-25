@@ -3,18 +3,25 @@ from .models import *
 import bcrypt
 from django.contrib import messages
 
-#render
+# nav render
 def index(request):
     return render(request, 'index.html')
 
 def dashboard(request, player_id):
+    if 'uuid' not in request.session:
+        return redirect('/')
     context = {
         "player" : Player.objects.get(id=player_id)
     }
     return render(request, 'dashboard.html', context)
 
 def arcade(request):
-    return render(request, 'arcade.html')
+    if 'uuid' not in request.session:
+        return redirect('/')
+    context = {
+        "player": Player.objects.get(id=request.session['uuid'])
+    }
+    return render(request, 'arcade.html', context)
 
 # Register/Login/Logout
 def register(request):
@@ -48,3 +55,10 @@ def login(request):
 def logout(request):
     request.session.flush()
     return redirect('/')
+
+# Redirect/Process
+def dashboard_redirect(request):
+    if 'uuid' not in request.session:
+        return redirect('/')
+    logged_player = request.session['uuid']
+    return redirect(f'/dashboard/{logged_player}/')
