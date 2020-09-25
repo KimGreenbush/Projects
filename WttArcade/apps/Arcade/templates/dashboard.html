@@ -27,16 +27,16 @@
 		</nav>
 
 		<header>
-			<h1 class="text-center">Welcome, {{player.username}}!</h1>
+			<h1 class="text-center">{% if logged_player == player %}Welcome, {% endif %}{{player.username}}{% if logged_player == player %}!{% endif %}</h1>
 		</header>
 
 		<main>
 			<div class="col-md-1 col-sm-1"></div>
 			<div class="col-md-4 col-sm-5 text-center">
 				<h2>Scoreboard</h2>
-				<p>{game1 : top score}</p>
-				<p>{game2 : top score}</p>
-				<p>{game3 : top score}</p>
+				<p>{Snake : top score}</p>
+				<p>{PacMan : top score}</p>
+				<p>{Tetris : top score}</p>
 			</div>
 			<div class="col-md-2 col-sm-0"></div>
 			<div class="col-md-4 col-sm-5 text-center">

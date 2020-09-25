@@ -13,7 +13,7 @@ def dashboard(request, player_id):
     context = {
         "logged_player": Player.objects.get(id=request.session['uuid']),
         "player": Player.objects.get(id=player_id),
-        "friends": Player.objects.get(id=player_id).friends.all(),
+        "friends": Player.objects.get(id=player_id).friendships.all(),
         "my_friends": Player.objects.get(id=request.session['uuid']).friendships.all()
     }
     return render(request, 'dashboard.html', context)
@@ -68,8 +68,10 @@ def dashboard_redirect(request):
 
 def add_friend(request, player_id):
     Player.objects.get(id=request.session['uuid']).friendships.add(Player.objects.get(id=player_id))
+    Player.objects.get(id=request.session['uuid']).friends.add(Player.objects.get(id=player_id))
     return redirect(f'/dashboard/{player_id}/')
 
 def remove_friend(request, player_id):
     Player.objects.get(id=request.session['uuid']).friendships.remove(Player.objects.get(id=player_id))
+    Player.objects.get(id=request.session['uuid']).friends.remove(Player.objects.get(id=player_id))
     return redirect(f'/dashboard/{player_id}/')

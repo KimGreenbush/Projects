@@ -1,11 +1,29 @@
 from django.shortcuts import render, redirect
-from .models import *
+from ..Arcade.models import *
+
 
 def snake(request):
-    return render(request, 'snake.html')
+    if 'uuid' not in request.session:
+        return redirect('/')
+    context = {
+        "logged_player": Player.objects.get(id=request.session['uuid'])
+    }
+    return render(request, 'snake.html', context)
+
 
 def pacman(request):
-    return render(request, 'pacman.html')
+    if 'uuid' not in request.session:
+        return redirect('/')
+    context = {
+        "logged_player": Player.objects.get(id=request.session['uuid'])
+    }
+    return render(request, 'pacman.html', context)
+
 
 def tetris(request):
-    return render(request, 'tetris.html')
+    if 'uuid' not in request.session:
+        return redirect('/')
+    context = {
+        "logged_player": Player.objects.get(id=request.session['uuid'])
+    }
+    return render(request, 'tetris.html', context)

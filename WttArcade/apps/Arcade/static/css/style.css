@@ -42,6 +42,22 @@ h1 {
 }
 
 h2 {
-    font-size: 4em;
+    font-size: 3em;
+    border-bottom: 2px dashed;
+}
+
+h3 {
+    padding: 2px 10px 7px 10px;
+    border-bottom: 1px dashed;
+}
+
+.leaderboard>p {
+    padding: 3px 10px;
+}
+
+.leaderboard {
+    display: inline-block;
+    width: 150px;
+    margin: 10px 0 20px 0;
     border: 2px dashed;
 }
