@@ -17,12 +17,8 @@
 		<nav class="navbar">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a href="/dashboard/{{player.id}}"><span class="glyphicon glyphicon-list-alt"></span> Dashboard</a>
-					</li>
-					<li>
-						<a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-					</li>
+					<li><a href="{% url 'arcade:dashboard' player.id %}"><span class="glyphicon glyphicon-list-alt"></span> Dashboard</a></li>
+					<li><a href="{% url 'arcade:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -33,10 +29,10 @@
 
 		<main class="text-center">
 			<div class="col-sm-6 col-md-4">
-				<p><a class="btn " href="/arcade/snake" role="button">Snake</a></p>
+				<p><a class="btn " href="{% url 'games:snake' %}" role="button">Snake</a></p>
 				<div>
 				<div class="game">
-					<p>{leaderboard}</p>
+					<h4>Leaderboard</h4>
 					<p>{top score1}</p>
 					<p>{top score2}</p>
 					<p>{top score3}</p>
@@ -44,10 +40,10 @@
 				</div>
 			</div>
 			<div class="col-sm-6 col-md-4">
-				<p><a class="btn" href="/arcade/pacman" role="button">PacMan</a></p>
+				<p><a class="btn" href="{#Pacman#}" role="button">PacMan</a></p>
 				<div>
 				<div class="game">
-					<p>{leaderboard}</p>
+					<h4>Leaderboard</h4>
 					<p>{top score1}</p>
 					<p>{top score2}</p>
 					<p>{top score3}</p>
@@ -55,10 +51,10 @@
 				</div>
 			</div>
 			<div class="col-sm-6 col-md-4">
-				<p><a class="btn" href="/arcade/tetris" role="button">Tetris</a></p>
+				<p><a class="btn" href="{#Tetris#}" role="button">Tetris</a></p>
 				<div>
 				<div class="game">
-					<p>{leaderboard}</p>
+					<h4>Leaderboard</h4>
 					<p>{top score1}</p>
 					<p>{top score2}</p>
 					<p>{top score3}</p>

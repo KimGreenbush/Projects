@@ -17,8 +17,11 @@
 	<nav class="navbar">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/arcade"><span class="glyphicon glyphicon-knight"></span> Arcade</a></li>
-					<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					{% if logged_player != player %}
+					<li><a href="{% url 'arcade:dashboard' logged_player.id %}"><span class="glyphicon glyphicon-list-alt"></span> Dashboard</a></li>
+					{% endif %}
+					<li><a href="{% url 'arcade:arcade' %}"><span class="glyphicon glyphicon-knight"></span> Arcade</a></li>
+					<li><a href="{% url 'arcade:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -38,10 +41,21 @@
 			<div class="col-md-2 col-sm-0"></div>
 			<div class="col-md-4 col-sm-5 text-center">
 				<h2>Friends</h2>
-				<p>{friend1}</p>
-				<p>{friend2}</p>
-				<p>{friend3}</p>
-				<a href="/arcade/add_friend"><button class="btn">Add to Friends</button></a>
+				{% if logged_player != player and not logged_player in player.friends.all %}
+				<a href="{% url 'arcade:add_friend' player.id %}"><button class="btn">Add to Friends</button></a>
+				{% elif logged_player != player and logged_player in player.friends.all  %}
+				<a href="{% url 'arcade:remove_friend' player.id %}"><button class="btn">Remove from Friends</button></a>
+				{% endif %}
+				{% if  logged_player != player %}
+				{% for friend in friends %}
+				<p><a href="{% url 'arcade:dashboard' friend.id %}">{{friend.username}}</a></p>
+				{% endfor %}
+				{% endif %}
+				{% if logged_player == player %}
+				{% for friend in my_friends %}
+				<p><a href="{% url 'arcade:dashboard' friend.id %}">{{friend.username}}</a></p>
+				{% endfor %}
+				{% endif %}
 			</div>
 			<div class="col-md-1 col-sm-1"></div>
 		</main>

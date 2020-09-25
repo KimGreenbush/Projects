@@ -11,7 +11,10 @@ def dashboard(request, player_id):
     if 'uuid' not in request.session:
         return redirect('/')
     context = {
-        "player" : Player.objects.get(id=player_id)
+        "logged_player": Player.objects.get(id=request.session['uuid']),
+        "player": Player.objects.get(id=player_id),
+        "friends": Player.objects.get(id=player_id).friends.all(),
+        "my_friends": Player.objects.get(id=request.session['uuid']).friendships.all()
     }
     return render(request, 'dashboard.html', context)
 
@@ -38,7 +41,7 @@ def register(request):
         player.save()
         logged_player = player.id
         request.session['uuid'] = logged_player
-        return redirect(f'/dashboard/{logged_player}/')
+        return redirect(f'/dashboard/{logged_player} /')
 
 def login(request):
     errors = Player.objects.login_validator(request.POST)
@@ -62,3 +65,11 @@ def dashboard_redirect(request):
         return redirect('/')
     logged_player = request.session['uuid']
     return redirect(f'/dashboard/{logged_player}/')
+
+def add_friend(request, player_id):
+    Player.objects.get(id=request.session['uuid']).friendships.add(Player.objects.get(id=player_id))
+    return redirect(f'/dashboard/{player_id}/')
+
+def remove_friend(request, player_id):
+    Player.objects.get(id=request.session['uuid']).friendships.remove(Player.objects.get(id=player_id))
+    return redirect(f'/dashboard/{player_id}/')

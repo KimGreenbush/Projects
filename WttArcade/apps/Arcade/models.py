@@ -22,7 +22,7 @@ class PlayerManager(models.Manager):
         errors = {}
         player = Player.objects.filter(email=postData['email'])
         if not player:
-            errors['email'] = "Login error."
+            errors['email'] = "Check email."
         else:
             if player:
                 logged_player = player[0]

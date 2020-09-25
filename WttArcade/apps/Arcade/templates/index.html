@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="{% static 'css/style.css' %} " />
 	</head>
 	<body>
+
 		<nav class="navbar">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav navbar-right">
@@ -19,14 +20,16 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Register <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<div class="form-group">
-								{% if messages %}
-									<ul class="messages">
-										{% for message in messages %}
-										<li {% if message.tags%} class="{{messages.tags}}"{% endif %}>{% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %} {{message}} {% endif %}</li>
-										{% endfor %}
-									</ul>
-									{% endif %}
-								<form action="{% url 'arcade:register' %}" method="post">
+								<div id="reg_messages">
+									{% if messages %}
+										<ul class="messages">
+											{% for message in messages %}
+											<li {% if message.tags%} class="{{messages.tags}}"{% endif %}>{% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}{{message}}{% endif %}</li>
+											{% endfor %}
+										</ul>
+										{% endif %}
+									</div>
+								<form action="{% url 'arcade:register' %}" method="post" id="register">
 									{% csrf_token %}
 								<div class="form-group">
 									<label for="username">Username:</label>
@@ -54,14 +57,16 @@
 							><span class="glyphicon glyphicon-log-in"></span> Login <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<div class="form-group">
-								{% if messages %}
+								<div id="log_messages">
+									{% if messages %}
 									<ul class="messages">
 										{% for message in messages %}
-										<li {% if message.tags%} class="{{messages.tags}}"{% endif %}>{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} {{message}} {% endif %}</li>
+										<li {% if message.tags%} class="{{messages.tags}}"{% endif %}>{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{{message}}{% endif %}</li>
 										{% endfor %}
 									</ul>
 									{% endif %}
-								<form action="/login/" method="post">
+								</div>
+								<form action="{% url 'arcade:login' %}" method="post" id="login">
 								{% csrf_token %}
 								<div class="form-group">
 									<label for="email">Email:</label>
