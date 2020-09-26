@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const squares = document.querySelectorAll(".grid div");
+	const squares = document.querySelectorAll(".gameboard div");
 	const scoreDisplay = document.querySelector("span");
-	const startBtn = document.querySelector(".start");
+	const startBtn = document.querySelector(".btn");
 
 	const width = 10;
 	let currentIndex = 0; //first div in grid
