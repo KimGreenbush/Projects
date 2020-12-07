@@ -34,6 +34,6 @@ In future updates I plan to add these features: more games, scoreboard/leaderboa
 This is an open-source project and welcoming to any developer.
 
 # Requirements
-- Python 2.7+
+- Python 3+
 - Django
 - Bcrypt
