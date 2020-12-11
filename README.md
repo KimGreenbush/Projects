@@ -19,7 +19,7 @@ If it only runs in a specific context like a particular programming language ver
 Kim: Lead Developer, Creator
 
 ## Support
-If you have any questions or comments about this project email its main contributor:[Kim Greenbush](mailto:kim_greenbush@icloud.com
+If you have any questions or comments about this project email its main contributor:[Kim Greenbush](mailto:kim_greenbush@icloud.com)
 
 ## Authors and Acknowledgment
 I would like to thank all of the amazing instructors and TAs at Coding Dojofor teaching me the skills needed to create and develop this project.
