@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const squares = document.querySelectorAll(".gameboard div");
 	const scoreDisplay = document.querySelector("#score");
 	const startBtn = document.querySelector(".btn");
+	const overlay = document.querySelector("#overlay");
 
 	const width = 10;
 	let currentIndex = 0; //first div in grid
@@ -39,7 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			(currentSnake[0] - width < 0 && direction === -width) || // top
 			squares[currentSnake[0] + direction].classList.contains("snake")
 		) {
-			return clearInterval(interval); //clear interval
+			clearInterval(interval); //clear interval
+			return on();
 		}
 
 		const tail = currentSnake.pop();
@@ -85,6 +87,15 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
+	function on() {
+		overlay.classList.add("overlay");
+	}
+
+	function off() {
+		overlay.classList.remove("overlay");
+	}
+
 	document.addEventListener("keydown", control);
 	startBtn.addEventListener("click", startGame);
+	overlay.addEventListener("click", off);
 });
