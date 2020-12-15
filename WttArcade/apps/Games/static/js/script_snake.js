@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	const scoreDisplay = document.querySelector("#score");
 	const startBtn = document.querySelector(".btn");
 	const overlay = document.querySelector("#overlay");
+	const overlayText = document.querySelector("#overlay-text");
+	const scoreInput = document.querySelector("#input-score")
+	const scoreForm = document.querySelector("#submit-score")
 
 	const width = 10;
 	let currentIndex = 0; //first div in grid
@@ -41,6 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			squares[currentSnake[0] + direction].classList.contains("snake")
 		) {
 			clearInterval(interval); //clear interval
+			scoreInput.value = score;
+			scoreForm.submit();
 			return on();
 		}
 
@@ -89,10 +94,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function on() {
 		overlay.classList.add("overlay");
+		overlayText.style.display = "block";
+
 	}
 
 	function off() {
 		overlay.classList.remove("overlay");
+		overlayText.style.display = "none";
+		// add submit for hidden input here
 	}
 
 	document.addEventListener("keydown", control);

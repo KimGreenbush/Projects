@@ -1,5 +1,11 @@
 # Requirements for game pages
 
+## Add scores to DB
+- [x] hidden input to hold score and send as post request to backend
+- [x] autosubmit input form when Game Over
+- [ ] create backend routes to add to DB
+- [ ] add action route to form
+
 ## Leaderboards
 - [ ] Scores must be populated and sorted
 - [ ] at the end of the game player's score must be saved
