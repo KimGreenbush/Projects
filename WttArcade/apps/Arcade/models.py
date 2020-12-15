@@ -37,15 +37,15 @@ class Player(models.Model):
     friends = models.ManyToManyField('Player', related_name='friendships')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    #scores
     #games
+    #friendships
     objects = PlayerManager()
     def __str__(self):
         return f"<{self.username} ({self.id})>"
 
 class Game(models.Model):
     title = models.CharField(max_length=30)
-    score = models.ForeignKey(Player, related_name='scores', on_delete=models.CASCADE)
+    score = models.PositiveSmallIntegerField
     player = models.ManyToManyField(Player, related_name='games')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

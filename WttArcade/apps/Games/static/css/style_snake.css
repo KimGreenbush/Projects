@@ -4,8 +4,8 @@
 }
 
 .gameboard {
-	width: 200px;
-	height: 200px;
+	width: 206px;
+	height: 206px;
 	display: flex;
 	flex-wrap: wrap;
     border-style: solid;

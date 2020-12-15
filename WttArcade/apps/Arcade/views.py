@@ -41,7 +41,7 @@ def register(request):
         player.save()
         logged_player = player.id
         request.session['uuid'] = logged_player
-        return redirect(f'/dashboard/{logged_player} /')
+        return redirect(f'/dashboard/{logged_player}/')
 
 def login(request):
     errors = Player.objects.login_validator(request.POST)

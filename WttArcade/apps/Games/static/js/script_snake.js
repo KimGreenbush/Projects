@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const squares = document.querySelectorAll(".gameboard div");
-	const scoreDisplay = document.querySelector("span");
+	const scoreDisplay = document.querySelector("#score");
 	const startBtn = document.querySelector(".btn");
 
 	const width = 10;
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			squares[tail].classList.add("snake");
 			currentSnake.push(tail);
 			randomApple();
-			score++;
+			score+=10;
 			scoreDisplay.textContent = score;
 			clearInterval(interval);
 			intervalTime = intervalTime * speed;
