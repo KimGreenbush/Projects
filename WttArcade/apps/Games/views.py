@@ -26,4 +26,10 @@ def tetris(request):
     }
     return render(request, 'tetris.html', context)
 
-# add scores
+# add scores (CRUD)
+def add_game_score(request, game_title):
+    score = request.POST("score")
+    player = Player.objects.get(id=request.session['uuid'])
+    game = Game.objects.create(title=game_title, score=score, player=player)
+    game.save()
+    return redirect(f"/{game_title}/")
