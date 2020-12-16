@@ -14,7 +14,8 @@ def dashboard(request, player_id):
         "logged_player": Player.objects.get(id=request.session['uuid']),
         "player": Player.objects.get(id=player_id),
         "friends": Player.objects.get(id=player_id).friendships.all(),
-        "my_friends": Player.objects.get(id=request.session['uuid']).friendships.all()
+        "my_friends": Player.objects.get(id=request.session['uuid']).friendships.all(),
+        "games": Player.objects.get(id=player_id).games.all()
     }
     return render(request, 'dashboard.html', context)
 

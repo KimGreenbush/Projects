@@ -15,9 +15,8 @@
 	</head>
 	<body>
         <div id="overlay">
-            <div id="overlay-text">Game Over</div>
-            <p>Click anywhere to return</p>
-            <form action="snake/add_score" id="submit-score" method="post">
+            <div id="overlay-text">Game Over (click anywhere to return)</div>
+            <form action="/snake/add_score" id="submit-score" method="post">
                 <input type="hidden" id="input-score" name="score" value="" />
             </form>
         </div>
