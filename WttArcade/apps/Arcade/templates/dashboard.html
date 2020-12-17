@@ -34,16 +34,14 @@
 			<div class="col-md-1 col-sm-1"></div>
 			<div class="col-md-4 col-sm-5 text-center">
 				<h2>Scoreboard</h2>
-				{% for game in games %}
-				{% if game.title == "snake" %}
+				{% for game in snake %}
 				<p>{{% game.title %} : {% game.score %}}</p>
-				{% endif %}
-				{% if game.title == "pacman"%}
+				{% endfor %}
+				{% for game in pacman %}
 				<p>{{% game.title%} : {% game.score %}}</p>
-				{% endif %}
-				{% if game.title == "tetris" %}
+				{% endfor %}
+				{% for game in tetris %}
 				<p>{{% game.title %} : {% game.score %}}</p>
-				{% endif %}
 				{% endfor %}
 			</div>
 			<div class="col-md-2 col-sm-0"></div>

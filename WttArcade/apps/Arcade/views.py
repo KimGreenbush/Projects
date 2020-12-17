@@ -15,7 +15,9 @@ def dashboard(request, player_id):
         "player": Player.objects.get(id=player_id),
         "friends": Player.objects.get(id=player_id).friendships.all(),
         "my_friends": Player.objects.get(id=request.session['uuid']).friendships.all(),
-        "games": Player.objects.get(id=player_id).games.all()
+        "snake": Player.objects.get(id=player_id).games.filter(title="snake").order_by(-score),
+        "pacman": Player.objects.get(id=player_id).games.filter(title="pacman").order_by(-score),
+        "tetris": Player.objects.get(id=player_id).games.filter(title="tetris").order_by(-score)
     }
     return render(request, 'dashboard.html', context)
 
