@@ -15,7 +15,7 @@
 	</head>
 	<body>
         <div id="overlay">
-            <div id="overlay-text">Game Over (click anywhere to return)</div>
+            <div id="overlay-text">Game Over </div>
             <form action="{% url 'games:add_score' 'snake' %}" id="submit-score" method="post">
                 {% csrf_token %}
                 <input type="hidden" id="input-score" name="score" value="" />
@@ -154,9 +154,9 @@
         <div class="col-md-4 col-sm-6">
             <div class="leaderboard">
                 <h4>Leaderboard</h4>
-                <p>{9980}</p>
-                <p>{7850}</p>
-                <p>{7840}</p>
+                {% for game in snake_scores %}
+				<p>{{game.player.all.0.username}} : {{ game.score }}</p>
+				{% endfor %}
             </div>
         </div>
 

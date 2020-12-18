@@ -101,25 +101,25 @@
 			<div class="col-md-4 col-sm-6">
 				<div class="leaderboard">
 					<h3>Snake</h3>
-					<p>{Score}</p>
-					<p>{Score}</p>
-					<p>{Score}</p>
+					{% for game in snake_scores %}
+					<p>{{game.player.all.0.username}} : {{ game.score }}</p>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="leaderboard">
+					<h3>Pacman</h3>
+					{% for game in pacman_scores %}
+					<p>{{game.player.all.0.username}} : {{ game.score }}</p>
+					{% endfor %}
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-6">
 				<div class="leaderboard">
 					<h3>Tetris</h3>
-					<p>{Score}</p>
-					<p>{Score}</p>
-					<p>{Score}</p>
-				</div>
-			</div>
-			<div class="col-md-4 col-sm-6">
-				<div class="leaderboard">
-					<h3>PacMan</h3>
-					<p>{Score}</p>
-					<p>{Score}</p>
-					<p>{Score}</p>
+					{% for game in tetris_scores %}
+					<p>{{game.player.all.0.username}} : {{ game.score }}</p>
+					{% endfor %}
 				</div>
 			</div>
 		</div>

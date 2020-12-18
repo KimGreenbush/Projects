@@ -33,9 +33,9 @@
 				<div>
 				<div class="game">
 					<h4>Leaderboard</h4>
-					<p>{9980}</p>
-					<p>{7850}</p>
-					<p>{7840}</p>
+					{% for game in snake_scores %}
+					<p>{{game.player.all.0.username}} : {{ game.score }}</p>
+					{% endfor %}
 				</div>
 				</div>
 			</div>
@@ -44,9 +44,9 @@
 				<div>
 				<div class="game">
 					<h4>Leaderboard</h4>
-					<p>{11580}</p>
-					<p>{9840}</p>
-					<p>{560}</p>
+					{% for game in pacman_scores %}
+					<p>{{game.player.all.0.username}} : {{ game.score }}</p>
+					{% endfor %}
 				</div>
 				</div>
 			</div>
@@ -55,9 +55,9 @@
 				<div>
 				<div class="game">
 					<h4>Leaderboard</h4>
-					<p>{9080}</p>
-					<p>{9050}</p>
-					<p>{400}</p>
+					{% for game in tetris_scores %}
+					<p>{{game.player.all.0.username}} : {{ game.score }}</p>
+					{% endfor %}
 				</div>
 				</div>
 			</div>

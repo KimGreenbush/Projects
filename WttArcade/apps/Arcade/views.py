@@ -5,7 +5,13 @@ from django.contrib import messages
 
 # nav render
 def index(request):
-    return render(request, 'index.html')
+    context = {
+        "player": Player.objects.get(id=request.session['uuid']),
+        "snake_scores": Game.objects.filter(title="snake").order_by("-score"),
+        "pacman_scores": Game.objects.filter(title="pacman").order_by("-score"),
+        "tetris_scores": Game.objects.filter(title="tetris").order_by("-score")
+    }
+    return render(request, 'index.html', context)
 
 def dashboard(request, player_id):
     if 'uuid' not in request.session:
@@ -25,7 +31,10 @@ def arcade(request):
     if 'uuid' not in request.session:
         return redirect('/')
     context = {
-        "player": Player.objects.get(id=request.session['uuid'])
+        "player": Player.objects.get(id=request.session['uuid']),
+        "snake_scores": Game.objects.filter(title="snake").order_by("-score"),
+        "pacman_scores": Game.objects.filter(title="pacman").order_by("-score"),
+        "tetris_scores": Game.objects.filter(title="tetris").order_by("-score")
     }
     return render(request, 'arcade.html', context)
 
