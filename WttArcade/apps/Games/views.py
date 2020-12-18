@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from ..Arcade.models import *
 
+# redirect to "arcade"
+def index(request):
+    return redirect("/arcade/")
+
 # render game pages
 def snake(request):
     if 'uuid' not in request.session:
@@ -27,9 +31,10 @@ def tetris(request):
     return render(request, 'tetris.html', context)
 
 # add scores (CRUD)
-def add_game_score(request, game_title):
-    score = request.POST("score")
+def add_score(request, game_title):
+    score = request.POST["score"]
     player = Player.objects.get(id=request.session['uuid'])
-    game = Game.objects.create(title=game_title, score=score, player=player)
+    game = Game.objects.create(title=game_title, score=score)
     game.save()
-    return redirect(f"/{game_title}/")
+    game.player.add(player)
+    return redirect(f"/games/{game_title}/")

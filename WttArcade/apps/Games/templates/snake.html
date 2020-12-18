@@ -16,8 +16,10 @@
 	<body>
         <div id="overlay">
             <div id="overlay-text">Game Over (click anywhere to return)</div>
-            <form action="/snake/add_score" id="submit-score" method="post">
+            <form action="{% url 'games:add_score' 'snake' %}" id="submit-score" method="post">
+                {% csrf_token %}
                 <input type="hidden" id="input-score" name="score" value="" />
+                <!-- <input type="hidden" name="game" value="snake" /> -->
             </form>
         </div>
 
