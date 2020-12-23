@@ -2,9 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Pac-man</title>
-    <link rel="stylesheet" href="pacman_style.css">
-    <script src="pacman.js" charset="utf-8"></script>
+    <title>WttA PacMan</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/pacman.css'%} " />
+    <script src="{% static 'js/pacman.js' %}"></script>
+
   </head>
   <body>
     <div class="grid"></div>
