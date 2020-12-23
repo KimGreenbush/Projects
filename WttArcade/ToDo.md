@@ -20,6 +20,7 @@
 ## Backgrounds/Overlay
 - [ ] Some kind of graphic or JS background (ex. particle or stars)
 - [ ] redesign overlays
+- [ ] refactor Bootstrap
 
 ## Borders
 - [ ] moving borders?

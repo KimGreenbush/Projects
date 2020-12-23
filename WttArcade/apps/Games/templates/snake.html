@@ -19,7 +19,6 @@
             <form action="{% url 'games:add_score' 'snake' %}" id="submit-score" method="post">
                 {% csrf_token %}
                 <input type="hidden" id="input-score" name="score" value="" />
-                <!-- <input type="hidden" name="game" value="snake" /> -->
             </form>
         </div>
 

@@ -57,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
 				squares[i].classList.add("ghost-lair");
 			} else if (layout[i] === 3) {
 				squares[i].classList.add("power-pellet");
+			} else {
+				squares[i].classList.add("empty");
 			}
 		}
 	}
