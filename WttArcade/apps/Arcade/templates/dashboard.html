@@ -34,9 +34,15 @@
 			<div class="col-md-1 col-sm-1"></div>
 			<div class="col-md-4 col-sm-5 text-center">
 				<h2>Scoreboard</h2>
-				<p>{Snake : 680}</p>
-				<p>{PacMan : 350}</p>
-				<p>{Tetris : 790}</p>
+				{% for game in snake %}
+				<p>Snake : {{ game.score }}</p>
+				{% endfor %}
+				{% for game in pacman %}
+				<p>Pacman : {{ game.score }}</p>
+				{% endfor %}
+				{% for game in tetris %}
+				<p>Tetris: {{ game.score }}</p>
+				{% endfor %}
 			</div>
 			<div class="col-md-2 col-sm-0"></div>
 			<div class="col-md-4 col-sm-5 text-center">

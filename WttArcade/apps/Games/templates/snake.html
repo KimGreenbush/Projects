@@ -10,10 +10,19 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 		{% load static %}
-		<link rel="stylesheet" href="{% static 'css/style_snake.css'%} " />
-		<script src="{% static 'js/script_snake.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'css/snake.css'%} " />
+		<script src="{% static 'js/snake.js' %}"></script>
 	</head>
 	<body>
+        <div id="overlay">
+            <div id="overlay-text">Game Over </div>
+            <form action="{% url 'games:add_score' 'snake' %}" id="submit-score" method="post">
+                {% csrf_token %}
+                <input type="hidden" id="input-score" name="score" value="" />
+                <!-- <input type="hidden" name="game" value="snake" /> -->
+            </form>
+        </div>
+
 		<nav class="navbar">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav navbar-right">
@@ -145,9 +154,11 @@
         <div class="col-md-4 col-sm-6">
             <div class="leaderboard">
                 <h4>Leaderboard</h4>
-                <p>{9980}</p>
-                <p>{7850}</p>
-                <p>{7840}</p>
+				<p>{{snake_scores.0.player.all.0.username}} : {{ snake_scores.0.score }}</p>
+				<p>{{snake_scores.1.player.all.0.username}} : {{ snake_scores.1.score }}</p>
+				<p>{{snake_scores.2.player.all.0.username}} : {{ snake_scores.2.score }}</p>
+				<p>{{snake_scores.3.player.all.0.username}} : {{ snake_scores.3.score }}</p>
+                <p>{{snake_scores.4.player.all.0.username}} : {{ snake_scores.4.score }}</p>
             </div>
         </div>
 

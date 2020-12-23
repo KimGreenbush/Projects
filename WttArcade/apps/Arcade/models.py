@@ -45,7 +45,7 @@ class Player(models.Model):
 
 class Game(models.Model):
     title = models.CharField(max_length=30)
-    score = models.PositiveSmallIntegerField
+    score = models.PositiveSmallIntegerField()
     player = models.ManyToManyField(Player, related_name='games')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
