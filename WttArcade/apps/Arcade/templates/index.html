@@ -101,25 +101,31 @@
 			<div class="col-md-4 col-sm-6">
 				<div class="leaderboard">
 					<h3>Snake</h3>
-					{% for game in snake_scores %}
-					<p>{{game.player.all.0.username}} : {{ game.score }}</p>
-					{% endfor %}
+					<p>{{snake_scores.0.player.all.0.username}} : {{ snake_scores.0.score }}</p>
+					<p>{{snake_scores.1.player.all.0.username}} : {{ snake_scores.1.score }}</p>
+					<p>{{snake_scores.2.player.all.0.username}} : {{ snake_scores.2.score }}</p>
+					<p>{{snake_scores.3.player.all.0.username}} : {{ snake_scores.3.score }}</p>
+					<p>{{snake_scores.4.player.all.0.username}} : {{ snake_scores.4.score }}</p>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-6">
 				<div class="leaderboard">
 					<h3>Pacman</h3>
-					{% for game in pacman_scores %}
-					<p>{{game.player.all.0.username}} : {{ game.score }}</p>
-					{% endfor %}
+					<p>{{pacman_scores.0.player.all.0.username}} : {{ pacman_scores.0.score }}</p>
+					<p>{{pacman_scores.1.player.all.0.username}} : {{ pacman_scores.1.score }}</p>
+					<p>{{pacman_scores.2.player.all.0.username}} : {{ pacman_scores.2.score }}</p>
+					<p>{{pacman_scores.3.player.all.0.username}} : {{ pacman_scores.3.score }}</p>
+					<p>{{pacman_scores.4.player.all.0.username}} : {{ pacman_scores.4.score }}</p>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-6">
 				<div class="leaderboard">
 					<h3>Tetris</h3>
-					{% for game in tetris_scores %}
-					<p>{{game.player.all.0.username}} : {{ game.score }}</p>
-					{% endfor %}
+					<p>{{tetris_scores.0.player.all.0.username}} : {{ tetris_scores.0.score }}</p>
+					<p>{{tetris_scores.1.player.all.0.username}} : {{ tetris_scores.1.score }}</p>
+					<p>{{tetris_scores.2.player.all.0.username}} : {{ tetris_scores.2.score }}</p>
+					<p>{{tetris_scores.3.player.all.0.username}} : {{ tetris_scores.3.score }}</p>
+					<p>{{tetris_scores.4.player.all.0.username}} : {{ tetris_scores.4.score }}</p>
 				</div>
 			</div>
 		</div>

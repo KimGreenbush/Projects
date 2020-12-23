@@ -154,9 +154,11 @@
         <div class="col-md-4 col-sm-6">
             <div class="leaderboard">
                 <h4>Leaderboard</h4>
-                {% for game in snake_scores %}
-				<p>{{game.player.all.0.username}} : {{ game.score }}</p>
-				{% endfor %}
+				<p>{{snake_scores.0.player.all.0.username}} : {{ snake_scores.0.score }}</p>
+				<p>{{snake_scores.1.player.all.0.username}} : {{ snake_scores.1.score }}</p>
+				<p>{{snake_scores.2.player.all.0.username}} : {{ snake_scores.2.score }}</p>
+				<p>{{snake_scores.3.player.all.0.username}} : {{ snake_scores.3.score }}</p>
+                <p>{{snake_scores.4.player.all.0.username}} : {{ snake_scores.4.score }}</p>
             </div>
         </div>
 

@@ -5,11 +5,12 @@
 - [x] at the end of the game player's score must be saved
   - [x] checked against personal scoreboard
   - [x] checked against game leaderboard
-- [ ] Limit boards to three(3) top scores
+- [x] Limit boards to five(5) top scores
 - [ ] (optional) add AJAX/Sockets for async updates
 
 ## Game pages
 - [ ] Add more games
+
 
 # General website
 
