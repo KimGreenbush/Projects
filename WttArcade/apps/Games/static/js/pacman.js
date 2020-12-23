@@ -79,8 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	function movePacman(e) {
 		squares[pacmanCurrentIndex].classList.remove("pac-man");
 		switch (e.keyCode) {
-			case 37:
-                if (pacmanCurrentIndex % width !== 0 &&
+			case 37: // left
+                if (pacmanCurrentIndex % width !== 0 && // left border
                     !squares[pacmanCurrentIndex - 1].classList.contains("wall") &&
                     !squares[pacmanCurrentIndex - 1].classList.contains("ghost-lair")
                 )
@@ -89,16 +89,16 @@ document.addEventListener("DOMContentLoaded", () => {
 					pacmanCurrentIndex = 391;
 				}
 				break;
-			case 38:
-				if (pacmanCurrentIndex - width >= 0 &&
+			case 38: // up
+				if (pacmanCurrentIndex - width >= 0 && // top border
 					!squares[pacmanCurrentIndex - width].classList.contains("wall") &&
 					!squares[pacmanCurrentIndex - width].classList.contains("ghost-lair")
 				)
 					pacmanCurrentIndex -= width;
 				break;
-			case 39:
+			case 39: // right
 				if (
-					pacmanCurrentIndex % width < width - 1 &&
+					pacmanCurrentIndex % width < width - 1 && // right border
 					!squares[pacmanCurrentIndex + 1].classList.contains("wall") &&
 					!squares[pacmanCurrentIndex + 1].classList.contains("ghost-lair")
 				)
@@ -107,9 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
 					pacmanCurrentIndex = 364;
 				}
 				break;
-			case 40:
+			case 40: // down
 				if (
-					pacmanCurrentIndex + width < width * width &&
+					pacmanCurrentIndex + width < width * width && // bottom border
 					!squares[pacmanCurrentIndex + width].classList.contains("wall") &&
 					!squares[pacmanCurrentIndex + width].classList.contains("ghost-lair")
 				)
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// what happens when you eat a pac-dot
 	function pacDotEaten() {
 		if (squares[pacmanCurrentIndex].classList.contains("pac-dot")) {
-			score++;
+			score += 10;
 			scoreDisplay.innerHTML = score;
 			squares[pacmanCurrentIndex].classList.remove("pac-dot");
 		}
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	//what happens when you eat a power-pellet
 	function powerPelletEaten() {
 		if (squares[pacmanCurrentIndex].classList.contains("power-pellet")) {
-			score += 10;
+			score += 50;
 			ghosts.forEach((ghost) => (ghost.isScared = true));
 			setTimeout(unScareGhosts, 10000);
 			squares[pacmanCurrentIndex].classList.remove("power-pellet");
