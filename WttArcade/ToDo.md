@@ -1,4 +1,4 @@
-# Games
+# Games/Arcade
 
 ## Leaderboards
 - [x] Scores must be populated and sorted
@@ -9,13 +9,17 @@
 - [ ] (optional) add AJAX/Sockets for async updates
 
 ## Game pages
-- [ ] Add more games
+### Pacman
+- [ ] fix styling
+- [ ] add leaderboards
+- [ ] overlay to save score(delete alert)
 
 
-# General website
+# General website design
 
-## Backgrounds
+## Backgrounds/Overlay
 - [ ] Some kind of graphic or JS background (ex. particle or stars)
+- [ ] redesign overlays
 
 ## Borders
 - [ ] moving borders?
