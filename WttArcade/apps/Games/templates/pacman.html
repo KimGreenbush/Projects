@@ -13,13 +13,13 @@
 		<script src="{% static 'js/pacman.js' %}"></script>
 	</head>
 	<body>
-		<div id="overlay">
+		<!-- <div id="overlay">
 			<div id="overlay-text">Game Over</div>
-			<form action="{% url 'games:add_score' 'snake' %}" id="submit-score" method="post">
-				{% csrf_token %}
-				<input type="hidden" id="input-score" name="score" value="" />
-			</form>
-		</div>
+		</div> -->
+		<form action="{% url 'games:add_score' 'pacman' %}" id="submit-score" method="post">
+			{% csrf_token %}
+			<input type="hidden" id="input-score" name="score" value="" />
+		</form>
 
 		<nav class="navbar">
 			<div class="container-fluid">
@@ -43,6 +43,7 @@
 
         <div class="col-md-1 col-sm-1"></div>
         <div class="col-md-7 col-sm-5">
+			<button class="btn">Start/Restart</button>
             <div class="grid"></div>
 
             <h3>Score:<span id="score"></span></h3>

@@ -14,13 +14,13 @@
 		<script src="{% static 'js/snake.js' %}"></script>
 	</head>
 	<body>
-        <div id="overlay">
+        <!-- <div id="overlay">
             <div id="overlay-text">Game Over </div>
-            <form action="{% url 'games:add_score' 'snake' %}" id="submit-score" method="post">
-                {% csrf_token %}
-                <input type="hidden" id="input-score" name="score" value="" />
-            </form>
-        </div>
+        </div> -->
+        <form action="{% url 'games:add_score' 'snake' %}" id="submit-score" method="post">
+            {% csrf_token %}
+            <input type="hidden" id="input-score" name="score" value="" />
+        </form>
 
 		<nav class="navbar">
 			<div class="container-fluid">

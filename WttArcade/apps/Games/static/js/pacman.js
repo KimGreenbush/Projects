@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const scoreDisplay = document.getElementById("score");
-	const width = 28;
+	const startBtn = document.querySelector(".btn")
+	const scoreInput = document.querySelector("#input-score")
+	const scoreForm = document.querySelector("#submit-score")
+	const scoreDisplay = document.getElementById("score")
+
+	let pacmanCurrentIndex = 490;
 	let score = 0;
+	const width = 28;
 	const grid = document.querySelector(".grid");
     const layout = [
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -16,9 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
     1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,
     1,1,1,1,1,1,0,1,1,4,4,4,4,4,4,4,4,4,4,1,1,0,1,1,1,1,1,1,
     1,1,1,1,1,1,0,1,1,4,1,1,1,2,2,1,1,1,4,1,1,0,1,1,1,1,1,1,
-    1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
-    4,4,4,4,4,4,0,0,0,4,1,2,2,2,2,2,2,1,4,0,0,0,4,4,4,4,4,4,
-    1,1,1,1,1,1,0,1,1,4,1,2,2,2,2,2,2,1,4,1,1,0,1,1,1,1,1,1,
+    1,1,1,1,1,1,0,1,1,4,1,1,2,2,2,2,1,1,4,1,1,0,1,1,1,1,1,1,
+    4,4,4,4,4,4,0,0,0,4,1,1,2,2,2,2,1,1,4,0,0,0,4,4,4,4,4,4,
+    1,1,1,1,1,1,0,1,1,4,1,1,2,2,2,2,1,1,4,1,1,0,1,1,1,1,1,1,
     1,1,1,1,1,1,0,1,1,4,1,1,1,1,1,1,1,1,4,1,1,0,1,1,1,1,1,1,
     1,1,1,1,1,1,0,1,1,4,1,1,1,1,1,1,1,1,4,1,1,0,1,1,1,1,1,1,
     1,0,0,0,0,0,0,0,0,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,1,
@@ -64,17 +69,49 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 	createBoard();
 
-	//create Characters
-	//draw pacman onto the board
-	let pacmanCurrentIndex = 490;
-	squares[pacmanCurrentIndex].classList.add("pac-man");
+	//create ghosts using Constructors
+	class Ghost {
+		constructor(className, startIndex, speed) {
+			this.className = className;
+			this.startIndex = startIndex;
+			this.speed = speed;
+			this.currentIndex = startIndex;
+			this.isScared = false;
+			this.timerId = NaN;
+		}
+	}
 
-	//get the coordinates of pacman on the grid with X and Y axis
-	// function getCoordinates(index) {
-	//   return [index % width, Math.floor(index / width)]
-	// }
+	//all my ghosts
+	ghosts = [new Ghost("blinky", 348, 250), new Ghost("pinky", 376, 400), new Ghost("inky", 351, 300), new Ghost("clyde", 379, 500)];
 
-	// console.log(getCoordinates(pacmanCurrentIndex))
+	//start and restart
+	function startGame() {
+		// remove previous characters
+		squares[pacmanCurrentIndex].classList.remove("pac-man")
+
+		ghosts.forEach((ghost) => clearInterval(ghost.timerId));
+		ghosts.forEach((ghost) => {
+			squares[ghost.currentIndex].classList.remove(ghost.className);
+			squares[ghost.currentIndex].classList.remove("ghost");
+		});
+
+		//create new characters
+		//draw pacman onto the board
+		pacmanCurrentIndex = 490;
+		squares[pacmanCurrentIndex].classList.add("pac-man");
+
+		//draw my ghosts onto the grid
+		ghosts.forEach((ghost) => {
+			ghost.currentIndex = ghost.startIndex;
+		})
+		ghosts.forEach((ghost) => {
+			squares[ghost.currentIndex].classList.add(ghost.className);
+			squares[ghost.currentIndex].classList.add("ghost");
+		})
+
+		//move the Ghosts randomly
+		ghosts.forEach((ghost) => moveGhost(ghost));
+	}
 
 	//move pacman
 	function movePacman(e) {
@@ -149,30 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		ghosts.forEach((ghost) => (ghost.isScared = false));
 	}
 
-	//create ghosts using Constructors
-	class Ghost {
-		constructor(className, startIndex, speed) {
-			this.className = className;
-			this.startIndex = startIndex;
-			this.speed = speed;
-			this.currentIndex = startIndex;
-			this.isScared = false;
-			this.timerId = NaN;
-		}
-	}
-
-	//all my ghosts
-	ghosts = [new Ghost("blinky", 348, 250), new Ghost("pinky", 376, 400), new Ghost("inky", 351, 300), new Ghost("clyde", 379, 500)];
-
-	//draw my ghosts onto the grid
-	ghosts.forEach((ghost) => {
-		squares[ghost.currentIndex].classList.add(ghost.className);
-		squares[ghost.currentIndex].classList.add("ghost");
-	});
-
-	//move the Ghosts randomly
-	ghosts.forEach((ghost) => moveGhost(ghost));
-
 	function moveGhost(ghost) {
 		const directions = [-1, +1, width, -width];
 		let direction = directions[Math.floor(Math.random() * directions.length)];
@@ -213,20 +226,26 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (squares[pacmanCurrentIndex].classList.contains("ghost") && !squares[pacmanCurrentIndex].classList.contains("scared-ghost")) {
 			ghosts.forEach((ghost) => clearInterval(ghost.timerId));
 			document.removeEventListener("keydown", movePacman);
+			scoreInput.value = score;
 			setTimeout(function () {
-				alert("Game Over");
+				alert("Game Over. \nYou LOST!");
+				scoreForm.submit();
 			}, 500);
 		}
 	}
 
 	//check for a win - more is when this score is reached
 	function checkForWin() {
-		if (score === 274) {
+		if (score === 2000) {
 			ghosts.forEach((ghost) => clearInterval(ghost.timerId));
 			document.removeEventListener("keydown", movePacman);
+			scoreInput.value = score;
 			setTimeout(function () {
-				alert("You have WON!");
+				alert("You WON!");
+				scoreForm.submit();
 			}, 500);
 		}
 	}
+
+	startBtn.addEventListener("click", startGame);
 });

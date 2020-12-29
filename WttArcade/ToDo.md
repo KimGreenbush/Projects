@@ -10,10 +10,9 @@
 
 ## Game pages
 ### Pacman
-- [ ] fix styling
-- [ ] add leaderboards
-- [ ] overlay to save score(delete alert)
-
+- [x] fix styling
+- [x] add leaderboards
+- [ ]
 
 # General website design
 

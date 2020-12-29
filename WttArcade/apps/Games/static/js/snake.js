@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const squares = document.querySelectorAll(".gameboard div");
 	const scoreDisplay = document.querySelector("#score");
 	const startBtn = document.querySelector(".btn");
-	const overlay = document.querySelector("#overlay");
-	const overlayText = document.querySelector("#overlay-text");
 	const scoreInput = document.querySelector("#input-score")
 	const scoreForm = document.querySelector("#submit-score")
 
@@ -45,8 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		) {
 			clearInterval(interval); //clear interval
 			scoreInput.value = score;
-			scoreForm.submit();
-			return on();
+			setTimeout(function () {
+				alert("Game Over!");
+				scoreForm.submit();
+			}, 500);
 		}
 
 		const tail = currentSnake.pop();
@@ -92,19 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	function on() {
-		overlay.classList.add("overlay");
-		overlayText.style.display = "block";
-
-	}
-
-	function off() {
-		overlay.classList.remove("overlay");
-		overlayText.style.display = "none";
-		// add submit for hidden input here
-	}
-
 	document.addEventListener("keydown", control);
 	startBtn.addEventListener("click", startGame);
-	overlay.addEventListener("click", off);
 });
