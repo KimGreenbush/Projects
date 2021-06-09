@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import *
+from .models import Player, Game
 import bcrypt
 from django.contrib import messages
 
