@@ -1,9 +1,47 @@
+<<<<<<< HEAD
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(206, 204, 79, 0.5);
+	z-index: 3;
+}
+
+#overlay-text {
+	position: absolute;
+	display: none;
+	font-weight: bold;
+	top: 50%;
+	left: 50%;
+	font-size: 10rem;
+	color: black;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 566px;
+    height: 566px;
+    border-style: solid;
+=======
 .grid {
     display: flex;
     flex-wrap: wrap;
     width: 560px;
     height: 560px;
     border: solid black;
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 }
 
 .grid div {
@@ -12,9 +50,16 @@
 }
 
 .pac-dot {
+<<<<<<< HEAD
+    background-color: yellowgreen;
+    border: 7px solid rgb(15, 15, 15);
+    box-sizing: border-box;
+    border-radius: 10px;
+=======
     background-color: green;
     border: 5px solid white;
     box-sizing: border-box;
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 }
 
 .wall {
@@ -22,24 +67,54 @@
 }
 
 .power-pellet {
+<<<<<<< HEAD
+    background-color: yellowgreen;
+    border-radius: 10px;
+    border: 4px solid rgb(15, 15, 15);
+}
+
+.empty {
+    background-color: rgb(15, 15, 15);
+=======
     background-color: green;
     border-radius: 10px;
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 }
 
 .blinky {
     background-color: red;
+<<<<<<< HEAD
+    border-radius: 6px;
+    border: none;
+=======
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 }
 
 .pinky {
     background-color: pink;
+<<<<<<< HEAD
+    border-radius: 6px;
+    border: none;
+=======
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 }
 
 .inky {
     background-color: cyan;
+<<<<<<< HEAD
+    border-radius: 6px;
+    border: none;
+=======
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 }
 
 .clyde {
     background-color: orange;
+<<<<<<< HEAD
+    border-radius: 6px;
+    border: none;
+=======
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 }
 
 .pac-man {
@@ -48,5 +123,58 @@
 }
 
 .scared-ghost {
+<<<<<<< HEAD
+    background-color: rgb(125, 117, 245);
+    border-radius: 6px;
+    border: none;
+}
+
+
+body, a {
+	color: rgb(245, 236, 160);
+	background-color: rgb(15, 15, 15);
+}
+
+a:focus, a:hover, .btn:hover {
+	background-color: rgb(245, 236, 160);
+	color: rgb(15, 15, 15);
+	font-weight: bold;
+}
+
+.btn {
+	border: 1px solid rgb(245, 236, 160);
+	color: rgb(245, 236, 160);
+	background-color: rgb(15, 15, 15);
+	margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 5em;
+    border-bottom: 3px dashed;
+}
+
+h4 {
+    padding: 2px 10px 7px 10px;
+    border-bottom: 1px dashed;
+}
+
+.leaderboard>p {
+	padding: 3px 10px;
+	text-align: right;
+}
+
+.leaderboard {
+    display: inline-block;
+    margin: 10px 0 20px 0;
+    border: 2px dashed;
+}
+
+.score {
+    display: inline-block;
+    padding: 3px 10px;
+    margin: 10px 0 20px 0;
+    border: 2px dashed;
+=======
     background-color: aquamarine;
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 }

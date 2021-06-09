@@ -1,5 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<<<<<<< HEAD
+	<head>
+		<meta charset="utf-8" />
+		<title>WttA PacMan</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/pacman.css'%} " />
+		<script src="{% static 'js/pacman.js' %}"></script>
+	</head>
+	<body>
+		<!-- <div id="overlay">
+			<div id="overlay-text">Game Over</div>
+		</div> -->
+		<form action="{% url 'games:add_score' 'pacman' %}" id="submit-score" method="post">
+			{% csrf_token %}
+			<input type="hidden" id="input-score" name="score" value="" />
+		</form>
+
+		<nav class="navbar">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="{% url 'arcade:dashboard' logged_player.id %}"><span class="glyphicon glyphicon-list-alt"></span> Dashboard</a>
+					</li>
+					<li>
+						<a href="{% url 'arcade:arcade' %}"><span class="glyphicon glyphicon-knight"></span> Arcade</a>
+					</li>
+					<li>
+						<a href="{% url 'arcade:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<header>
+			<h1 class="text-center">Pacman</h1>
+		</header>
+
+        <div class="col-md-1 col-sm-1"></div>
+        <div class="col-md-7 col-sm-5">
+			<button class="btn">Start/Restart</button>
+            <div class="grid"></div>
+
+            <h3>Score:<span id="score"></span></h3>
+        </div>
+
+		<div class="col-md-4 col-sm-6">
+			<div class="leaderboard">
+				<h4>Leaderboard</h4>
+				<p>{{pacman_scores.0.player.all.0.username}} : {{ pacman_scores.0.score }}</p>
+				<p>{{pacman_scores.1.player.all.0.username}} : {{ pacman_scores.1.score }}</p>
+				<p>{{pacman_scores.2.player.all.0.username}} : {{ pacman_scores.2.score }}</p>
+				<p>{{pacman_scores.3.player.all.0.username}} : {{ pacman_scores.3.score }}</p>
+				<p>{{pacman_scores.4.player.all.0.username}} : {{ pacman_scores.4.score }}</p>
+			</div>
+		</div>
+	</body>
+</html>
+=======
   <head>
     <meta charset="utf-8">
     <title>Pac-man</title>
@@ -13,3 +76,4 @@
 
   </body>
 </html>
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
