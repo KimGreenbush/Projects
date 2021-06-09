@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Games/Arcade
+=======
+# Games
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 
 ## Leaderboards
 - [x] Scores must be populated and sorted
@@ -9,6 +13,7 @@
 - [ ] (optional) add AJAX/Sockets for async updates
 
 ## Game pages
+<<<<<<< HEAD
 ### Pacman
 - [x] fix styling
 - [x] add leaderboards
@@ -20,6 +25,15 @@
 - [ ] Some kind of graphic or JS background (ex. particle or stars)
 - [ ] redesign overlays
 - [ ] refactor Bootstrap
+=======
+- [ ] Add more games
+
+
+# General website
+
+## Backgrounds
+- [ ] Some kind of graphic or JS background (ex. particle or stars)
+>>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 
 ## Borders
 - [ ] moving borders?

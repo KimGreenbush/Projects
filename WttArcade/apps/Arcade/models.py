@@ -9,6 +9,8 @@ class PlayerManager(models.Manager):
         errors = {}
         if len(postData['username']) < 3:
             errors['username'] = "Username must be at least 3 characters."
+        if len(postData['username']) > 9:
+            errors['username'] = "Username must be smaller 8 characters."
         if not EMAIL_REGEX.match(postData['email']):
             errors['email'] = "Email not valid."
         if Player.objects.filter(email=postData['email']).exists():
@@ -31,7 +33,7 @@ class PlayerManager(models.Manager):
         return errors
 
 class Player(models.Model):
-    username = models.CharField(max_length=20)
+    username = models.CharField(max_length=9)
     email = models.EmailField(max_length=50)
     password = models.CharField(max_length=100)
     friends = models.ManyToManyField('Player', related_name='friendships')
@@ -39,6 +41,7 @@ class Player(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     #games
     #friendships
+    #messages
     objects = PlayerManager()
     def __str__(self):
         return f"<{self.username} ({self.id})>"
@@ -51,3 +54,12 @@ class Game(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
         return f"<{self.title} ({self.id})>"
+
+class Message(models.Model):
+    content = models.TextField(max_length=300)
+    author = models.ForeignKey(Player, related_name="messages", on_delete=models.CASCADE)
+    thread = models.ForeignKey("Message", related_name="posts", on_delete=models.CASCADE )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return "<Messages>"
