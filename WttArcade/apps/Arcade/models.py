@@ -33,7 +33,7 @@ class PlayerManager(models.Manager):
         return errors
 
 class Player(models.Model):
-    username = models.CharField(max_length=20)
+    username = models.CharField(max_length=9)
     email = models.EmailField(max_length=50)
     password = models.CharField(max_length=100)
     friends = models.ManyToManyField('Player', related_name='friendships')
