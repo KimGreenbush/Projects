@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.utils import timezone
-from .models import Player
+from .models import Player, Game
 
 def create_user(username, email, password = "taken"):
     _username = username
