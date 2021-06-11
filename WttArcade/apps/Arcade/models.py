@@ -55,6 +55,8 @@ class Game(models.Model):
     def __str__(self):
         return f"<{self.title} ({self.id})>"
 
+
+# not yet implemented
 class Message(models.Model):
     content = models.TextField(max_length=300)
     author = models.ForeignKey(Player, related_name="messages", on_delete=models.CASCADE)
