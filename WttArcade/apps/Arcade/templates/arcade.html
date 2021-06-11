@@ -13,12 +13,15 @@
 		<link rel="stylesheet" href="{% static 'css/style_arcade.css' %} " />
 	</head>
 	<body>
-
 		<nav class="navbar">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="{% url 'arcade:dashboard' player.id %}"><span class="glyphicon glyphicon-list-alt"></span> Dashboard</a></li>
-					<li><a href="{% url 'arcade:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					<li>
+						<a href="{% url 'arcade:dashboard' player.id %}"><span class="glyphicon glyphicon-list-alt"></span> Dashboard</a>
+					</li>
+					<li>
+						<a href="{% url 'arcade:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+					</li>
 				</ul>
 			</div>
 		</nav>
@@ -29,49 +32,45 @@
 
 		<main class="text-center">
 			<div class="col-sm-6 col-md-4">
-				<p><a class="btn " href="{% url 'games:snake' %}" role="button">Snake</a></p>
+				<p><a class="btn" href="{% url 'games:snake' %}" role="button">Snake</a></p>
 				<div>
-				<div class="game">
-					<h4>Leaderboard</h4>
-					<p>{{snake_scores.0.player.all.0.username}} : {{ snake_scores.0.score }}</p>
-					<p>{{snake_scores.1.player.all.0.username}} : {{ snake_scores.1.score }}</p>
-					<p>{{snake_scores.2.player.all.0.username}} : {{ snake_scores.2.score }}</p>
-					<p>{{snake_scores.3.player.all.0.username}} : {{ snake_scores.3.score }}</p>
-					<p>{{snake_scores.4.player.all.0.username}} : {{ snake_scores.4.score }}</p>
-				</div>
+					<div class="game">
+						<h4>Leaderboard</h4>
+						<p>{{snake_scores.0.player.all.0.username}} : {{ snake_scores.0.score }}</p>
+						<p>{{snake_scores.1.player.all.0.username}} : {{ snake_scores.1.score }}</p>
+						<p>{{snake_scores.2.player.all.0.username}} : {{ snake_scores.2.score }}</p>
+						<p>{{snake_scores.3.player.all.0.username}} : {{ snake_scores.3.score }}</p>
+						<p>{{snake_scores.4.player.all.0.username}} : {{ snake_scores.4.score }}</p>
+					</div>
 				</div>
 			</div>
 			<div class="col-sm-6 col-md-4">
-<<<<<<< HEAD
 				<p><a class="btn" href="{% url 'games:pacman' %}" role="button">PacMan</a></p>
-=======
-				<p><a class="btn" href="{#url 'games:pacman#}" role="button">PacMan</a></p>
->>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
+
 				<div>
-				<div class="game">
-					<h4>Leaderboard</h4>
-					<p>{{pacman_scores.0.player.all.0.username}} : {{ pacman_scores.0.score }}</p>
-					<p>{{pacman_scores.1.player.all.0.username}} : {{ pacman_scores.1.score }}</p>
-					<p>{{pacman_scores.2.player.all.0.username}} : {{ pacman_scores.2.score }}</p>
-					<p>{{pacman_scores.3.player.all.0.username}} : {{ pacman_scores.3.score }}</p>
-					<p>{{pacman_scores.4.player.all.0.username}} : {{ pacman_scores.4.score }}</p>
-				</div>
+					<div class="game">
+						<h4>Leaderboard</h4>
+						<p>{{pacman_scores.0.player.all.0.username}} : {{ pacman_scores.0.score }}</p>
+						<p>{{pacman_scores.1.player.all.0.username}} : {{ pacman_scores.1.score }}</p>
+						<p>{{pacman_scores.2.player.all.0.username}} : {{ pacman_scores.2.score }}</p>
+						<p>{{pacman_scores.3.player.all.0.username}} : {{ pacman_scores.3.score }}</p>
+						<p>{{pacman_scores.4.player.all.0.username}} : {{ pacman_scores.4.score }}</p>
+					</div>
 				</div>
 			</div>
 			<div class="col-sm-6 col-md-4">
 				<p><a class="btn" href="{#games:tetris#}" role="button">Tetris</a></p>
 				<div>
-				<div class="game">
-					<h4>Leaderboard</h4>
-					<p>{{tetris_scores.0.player.all.0.username}} : {{ tetris_scores.0.score }}</p>
-					<p>{{tetris_scores.1.player.all.0.username}} : {{ tetris_scores.1.score }}</p>
-					<p>{{tetris_scores.2.player.all.0.username}} : {{ tetris_scores.2.score }}</p>
-					<p>{{tetris_scores.3.player.all.0.username}} : {{ tetris_scores.3.score }}</p>
-					<p>{{tetris_scores.4.player.all.0.username}} : {{ tetris_scores.4.score }}</p>
-				</div>
+					<div class="game">
+						<h4>Leaderboard</h4>
+						<p>{{tetris_scores.0.player.all.0.username}} : {{ tetris_scores.0.score }}</p>
+						<p>{{tetris_scores.1.player.all.0.username}} : {{ tetris_scores.1.score }}</p>
+						<p>{{tetris_scores.2.player.all.0.username}} : {{ tetris_scores.2.score }}</p>
+						<p>{{tetris_scores.3.player.all.0.username}} : {{ tetris_scores.3.score }}</p>
+						<p>{{tetris_scores.4.player.all.0.username}} : {{ tetris_scores.4.score }}</p>
+					</div>
 				</div>
 			</div>
 		</main>
-
 	</body>
 </html>
