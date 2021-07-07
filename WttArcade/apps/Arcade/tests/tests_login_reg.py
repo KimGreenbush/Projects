@@ -23,15 +23,15 @@ class RegistrationTestCase(TestCase):
         a_user = create_test_user("Kim", "test@test.com", "Secure123", "Secure123")
         self.assertEquals(len(a_user), 0)
 
-    def test_username_too_short(self):
+    def test_username_less_than_three(self):
         short_username = create_test_user("Ki", "test@test.com", "Secure123", "Secure123")
         self.assertGreater(len(short_username), 0)
 
-    def test_username_too_long(self):
+    def test_username_greater_than_nine(self):
         long_username = create_test_user("Kimberleyy", "test@test.com", "Secure123", "Secure123")
         self.assertGreater(len(long_username), 0)
 
-    def test_email_available(self):
+    def test_email_isUnavailable(self):
         Player.objects.create(username="Kim", email="test@test.com", password="Secure123")
         unavailable_email = create_test_user("Kimberley", "test@test.com", "Secure123", "Secure123")
         self.assertGreater(len(unavailable_email), 0)
@@ -40,7 +40,7 @@ class RegistrationTestCase(TestCase):
         bad_email = create_test_user("Kimberley", "test@test", "Secure123", "Secure123")
         self.assertGreater(len(bad_email), 0)
 
-    def test_password_too_short(self):
+    def test_password_less_than_eight(self):
         bad_pass = create_test_user("Kimberley", "test@test.com", "NotSafe", "Secure123")
         self.assertGreater(len(bad_pass), 0)
 
