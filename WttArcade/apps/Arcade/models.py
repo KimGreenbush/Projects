@@ -10,7 +10,7 @@ class PlayerManager(models.Manager):
         if len(postData['username']) < 3:
             errors['username'] = "Username must be at least 3 characters."
         if len(postData['username']) > 9:
-            errors['username'] = "Username must be smaller 8 characters."
+            errors['username'] = "Username must be at most 9 characters."
         if not EMAIL_REGEX.match(postData['email']):
             errors['email'] = "Email not valid."
         if Player.objects.filter(email=postData['email']).exists():
