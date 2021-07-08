@@ -1,3 +1,5 @@
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/KimGreenbush/WttA_Welcome-to-the-Arcade)
+
 # Welcome to the Arcade(WttA)
 A scalable hosting site for classic, 8-bit styled arcade games, such as, Snake.
 
@@ -22,7 +24,7 @@ A scalable hosting site for classic, 8-bit styled arcade games, such as, Snake.
 Kim: Lead Developer, Creator
 
 ## Support
-If you have any questions or comments about this project email its main contributor:[Kim Greenbush](mailto:kim_greenbush@icloud.com)
+If you have any questions or comments about this project email its main contributor:[Kim Greenbush](mailto:kimgreenbush@gmail.com)
 
 ## Authors and Acknowledgment
 I would like to thank all of the amazing instructors and TAs at Coding Dojofor teaching me the skills needed to create and develop this project.
