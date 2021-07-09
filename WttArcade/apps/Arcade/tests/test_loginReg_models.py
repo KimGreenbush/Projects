@@ -1,6 +1,6 @@
 from django.test import TestCase
 import bcrypt
-from apps.Arcade.models import Player
+from ..models import Player
 
 def create_test_player(username="Kim", email="test@test.com", password="Secure123", pass_confirm="Secure123"):
     player = {
