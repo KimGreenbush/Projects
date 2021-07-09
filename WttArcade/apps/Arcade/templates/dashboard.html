@@ -57,8 +57,6 @@
 				<h2>Friends</h2>
 				{% if logged_player != player and not logged_player in player.friends.all %}
 				<a href="{% url 'arcade:add_friend' player.id %}"><button class="btn">Add to Friends</button></a>
-				{% elif logged_player != player and logged_player in player.friends.all %}
-				<a href="{% url 'arcade:remove_friend' player.id %}"><button class="btn">Remove from Friends</button></a>
 				{% endif %}
 				{% if logged_player != player %} {% for friend in friends %}
 				<p><a href="{% url 'arcade:dashboard' friend.id %}" class="h2">{{friend.username}}</a></p>
@@ -66,7 +64,7 @@
 				{% if logged_player == player %} {% for friend in my_friends %}
 				<p>
 					<a href="{% url 'arcade:dashboard' friend.id %}" class="h2">{{friend.username}}</a>
-					<a href="{% url 'arcade:remove_friend' player.id %}"><button class="btn btn-sm">Remove</button></a>
+					<a href="{% url 'arcade:remove_friend' friend.id %}"><button class="btn btn-sm">Remove</button></a>
 				</p>
 				{% endfor %} {% endif %}
 			</div>
