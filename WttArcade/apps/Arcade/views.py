@@ -24,7 +24,7 @@ def dashboard(request, player_id):
         "pacman": Game.objects.filter(player =  Player.objects.get(id=player_id), title="pacman").order_by("-score"),
         "tetris": Game.objects.filter(player =  Player.objects.get(id=player_id), title="tetris").order_by("-score")
     }
-    return render(request, 'dashboard.html', context, permanent=True)
+    return render(request, 'dashboard.html', context)
 
 def arcade(request):
     if 'uuid' not in request.session:
