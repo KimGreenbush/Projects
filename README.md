@@ -15,10 +15,15 @@ It's also fully responsive using **Bootstrap** so you can play on any practicall
 Checkout the *images/* folder for more screenshots!
 
 ![Welcome to the Arcade landing page](images\landing.png)
+
 ![player dashboards](images\dashboard.png)
+
 ![arcade](images\arcade.png)
+
 ![games](images\layout_games.png)
+
 ![responsive design](images\res_phone.png)
+
 
 ## Installation
 
