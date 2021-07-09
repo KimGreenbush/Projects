@@ -19,6 +19,12 @@ def validate_test_player(email, password):
     return Player.objects.login_validator(user)
 
 class RegistrationValidationTestCase(TestCase):
+    def setUp(self):
+        self.player = Player.objects.create(username="Kim", email="test1@test.com", password="Secure123")
+
+    def test_create_player(self):
+        self.assertIsNotNone(self.player)
+
     def test_validate_user(self):
         a_user = create_test_player("Kim", "test@test.com", "Secure123", "Secure123")
         self.assertEquals(len(a_user), 0)
@@ -54,8 +60,14 @@ class LoginValidationTestCase(TestCase):
         not_a_registered_email = validate_test_player("notanemail@notadomain.com", "Secure123")
         self.assertGreater(len(not_a_registered_email), 0)
 
-    def test_player_password_matches_input(self):
+    def test_player_password_does_not_match_input(self):
         pw_hash = bcrypt.hashpw("Secure123".encode(), bcrypt.gensalt()).decode()
         Player.objects.create(username="Kim", email="test@test.com", password=pw_hash)
         invalid_pass = validate_test_player("test@test.com", "Hackers1!")
         self.assertGreater(len(invalid_pass), 0)
+
+    def test_player_password_matches_input(self):
+        pw_hash = bcrypt.hashpw("Secure123".encode(), bcrypt.gensalt()).decode()
+        Player.objects.create(username="Kim", email="test@test.com", password=pw_hash)
+        valid_pass = validate_test_player("test@test.com", "Secure123")
+        self.assertEquals(len(valid_pass), 0)
