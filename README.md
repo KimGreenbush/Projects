@@ -14,11 +14,16 @@ It's also fully responsive using **Bootstrap** so you can play on any practicall
 
 Checkout the *images/* folder for more screenshots!
 
-![Welcome to the Arcade landing page](images\landing.png)
-![player dashboards](images\dashboard.png)
-![arcade](images\arcade.png)
-![games](images\layout_games.png)
-![responsive design](images\res_phone.png)
+![Welcome to the Arcade landing page](images/landing.png)
+
+![player dashboards](images/dashboard.png)
+
+![arcade](images/arcade.png)
+
+![games](images/layout_games.png)
+
+![responsive design](images/res_phone.png)
+
 
 ## Installation
 
@@ -35,18 +40,6 @@ Checkout the *images/* folder for more screenshots!
     <path/env/Scripts/activate>
     pip install -r requirements.txt
     ```
-
-## Contributors
-
-Kim: Lead Developer, Creator
-
-## Support
-
-If you have any questions or comments about this project email its main contributor:[Kim Greenbush](mailto:kimgreenbush@gmail.com)
-
-## Authors and Acknowledgment
-
-I would like to thank all of the amazing instructors and TAs at Coding Dojofor teaching me the skills needed to create and develop this project.
 
 ## Contributing
 
