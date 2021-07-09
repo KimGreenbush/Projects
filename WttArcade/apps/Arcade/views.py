@@ -68,14 +68,14 @@ def login(request):
 
 def logout(request):
     request.session.flush()
-    return redirect('/')
+    return redirect('/', permanent=True)
 
 # Redirect/Process
 def dashboard_redirect(request):
     if 'uuid' not in request.session:
-        return redirect('/')
+        return redirect('/', permanent=True)
     logged_player = request.session['uuid']
-    return redirect(f'/arcade/dashboard/{logged_player}/')
+    return redirect(f'/arcade/dashboard/{logged_player}/', permanent=True)
 
 def add_friend(request, player_id):
     Player.objects.get(id=request.session['uuid']).friendships.add(Player.objects.get(id=player_id))
@@ -84,5 +84,5 @@ def add_friend(request, player_id):
 
 def remove_friend(request, player_id):
     Player.objects.get(id=request.session['uuid']).friendships.remove(Player.objects.get(id=player_id))
-    Player.objects.get(id=request.session['uuid']).friends.remove(Player.objects.get(id=player_id))
-    return redirect(f'/arcade/dashboard/{player_id}/')
+    Player.objects.get(id=player_id).friendships.remove(Player.objects.get(id=request.session['uuid']))
+    return redirect(f"/arcade/dashboard/{request.session['uuid']}/")

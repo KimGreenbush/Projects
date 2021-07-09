@@ -1,12 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const squares = document.querySelectorAll(".gameboard div");
 	const scoreDisplay = document.querySelector("#score");
-	const startBtn = document.querySelector(".btn");
-<<<<<<< HEAD:WttArcade/apps/Games/static/js/snake.js
-=======
+	const startBtn = document.querySelector("#btn");
 	const overlay = document.querySelector("#overlay");
 	const overlayText = document.querySelector("#overlay-text");
->>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190:WttArcade/apps/Games/static/js/script_snake.js
 	const scoreInput = document.querySelector("#input-score")
 	const scoreForm = document.querySelector("#submit-score")
 
@@ -48,15 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		) {
 			clearInterval(interval); //clear interval
 			scoreInput.value = score;
-<<<<<<< HEAD:WttArcade/apps/Games/static/js/snake.js
-			setTimeout(function () {
-				alert("Game Over!");
-				scoreForm.submit();
-			}, 500);
-=======
 			scoreForm.submit();
 			return on();
->>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190:WttArcade/apps/Games/static/js/script_snake.js
 		}
 
 		const tail = currentSnake.pop();
@@ -114,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		// add submit for hidden input here
 	}
 
-	document.addEventListener("keydown", control);
 	startBtn.addEventListener("click", startGame);
+	document.addEventListener("keydown", control);
 	overlay.addEventListener("click", off);
 });

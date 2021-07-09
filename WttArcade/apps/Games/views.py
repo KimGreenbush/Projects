@@ -20,7 +20,7 @@ def pacman(request):
         return redirect('/')
     context = {
         "logged_player": Player.objects.get(id=request.session['uuid']),
-        "pacman_scores": Game.objects.filter(title="snake").order_by("-score")
+        "pacman_scores": Game.objects.filter(title="pacman").order_by("-score")
     }
     return render(request, 'pacman.html', context)
 

@@ -14,15 +14,6 @@
 		<script src="{% static 'js/snake.js' %}"></script>
 	</head>
 	<body>
-<<<<<<< HEAD
-        <!-- <div id="overlay">
-            <div id="overlay-text">Game Over </div>
-        </div> -->
-        <form action="{% url 'games:add_score' 'snake' %}" id="submit-score" method="post">
-            {% csrf_token %}
-            <input type="hidden" id="input-score" name="score" value="" />
-        </form>
-=======
         <div id="overlay">
             <div id="overlay-text">Game Over </div>
             <form action="{% url 'games:add_score' 'snake' %}" id="submit-score" method="post">
@@ -31,7 +22,6 @@
                 <!-- <input type="hidden" name="game" value="snake" /> -->
             </form>
         </div>
->>>>>>> 83b09d62497218615cf4a6f1834f51b36723e190
 
 		<nav class="navbar">
 			<div class="container-fluid">
@@ -55,7 +45,7 @@
 
         <div class="col-md-3 col-sm-1"></div>
         <div class="col-md-4 col-sm-5">
-            <button class="btn">Start/Restart</button>
+            <button class="btn" id="btn">Start/Restart</button>
             <div class="gameboard">
                 <div></div>
                 <div></div>
