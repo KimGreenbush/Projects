@@ -14,7 +14,7 @@ def index(request):
 
 def dashboard(request, player_id):
     if 'uuid' not in request.session:
-        return redirect('/', permanent=True)
+        return redirect('/')
     context = {
         "logged_player": Player.objects.get(id=request.session['uuid']),
         "player": Player.objects.get(id=player_id),
@@ -28,14 +28,14 @@ def dashboard(request, player_id):
 
 def arcade(request):
     if 'uuid' not in request.session:
-        return redirect('/', permanent=True)
+        return redirect('/')
     context = {
         "player": Player.objects.get(id=request.session['uuid']),
         "snake_scores": Game.objects.filter(title="snake").order_by("-score"),
         "pacman_scores": Game.objects.filter(title="pacman").order_by("-score"),
         "tetris_scores": Game.objects.filter(title="tetris").order_by("-score")
     }
-    return render(request, 'arcade.html', context, permanent=True)
+    return render(request, 'arcade.html', context)
 
 # Register/Login/Logout
 def register(request):
@@ -43,7 +43,7 @@ def register(request):
     if len(errors) > 0:
         for key, value in errors.items():
             messages.warning(request, value)
-        return redirect('/', permanent=True)
+        return redirect('/')
     else:
         password = request.POST['password']
         pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
@@ -52,19 +52,19 @@ def register(request):
         player.save()
         logged_player = player.id
         request.session['uuid'] = logged_player
-        return redirect(f'/arcade/dashboard/{logged_player}/', permanent=True)
+        return redirect(f'/arcade/dashboard/{logged_player}/')
 
 def login(request):
     errors = Player.objects.login_validator(request.POST)
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
-        return redirect('/', permanent=True)
+        return redirect('/')
     else:
         player = Player.objects.filter(email=request.POST['email'])
         logged_player = player[0].id
         request.session['uuid'] = logged_player
-        return redirect(f'/arcade/dashboard/{logged_player}/', permanent=True)
+        return redirect(f'/arcade/dashboard/{logged_player}/')
 
 def logout(request):
     request.session.flush()
@@ -80,9 +80,9 @@ def dashboard_redirect(request):
 def add_friend(request, player_id):
     Player.objects.get(id=request.session['uuid']).friendships.add(Player.objects.get(id=player_id))
     Player.objects.get(id=request.session['uuid']).friends.add(Player.objects.get(id=player_id))
-    return redirect(f'/arcade/dashboard/{player_id}/', permanent=True)
+    return redirect(f'/arcade/dashboard/{player_id}/')
 
 def remove_friend(request, player_id):
     Player.objects.get(id=request.session['uuid']).friendships.remove(Player.objects.get(id=player_id))
-    Player.objects.get(id=request.session['uuid']).friends.remove(Player.objects.get(id=player_id))
-    return redirect(f'/arcade/dashboard/{player_id}/', permanent=True)
+    Player.objects.get(id=player_id).friendships.remove(Player.objects.get(id=request.session['uuid']))
+    return redirect(f"/arcade/dashboard/{request.session['uuid']}/")
