@@ -41,18 +41,6 @@ Checkout the *images/* folder for more screenshots!
     pip install -r requirements.txt
     ```
 
-## Contributors
-
-Kim: Lead Developer, Creator
-
-## Support
-
-If you have any questions or comments about this project email its main contributor:[Kim Greenbush](mailto:kimgreenbush@gmail.com)
-
-## Authors and Acknowledgment
-
-I would like to thank all of the amazing instructors and TAs at Coding Dojofor teaching me the skills needed to create and develop this project.
-
 ## Contributing
 
 Special acknowledgment to [Ania Kubow](https://github.com/kubowania) for the Javascript game tutorials.
