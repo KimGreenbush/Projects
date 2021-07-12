@@ -6,7 +6,7 @@ Bringing it back retro-style. WttA is an 8-bit arcade-style game platform with c
 
 ## Background
 
-When I first started learning about JavaScript I wanted a fun way to do it. You learn best when it's fun after all.
+When I first started learning about JavaScript I wanted a fun way to do it. You learn best when it's fun after all. So I made some games.
 
 Using Django's multi-application structure I was able to assemble and organize the games I had so far into one spot with the ability to add more easily.
 
