@@ -12,7 +12,7 @@ Using Django's multi-application structure I was able to assemble and organize t
 
 There's also a registration system so players can save their scores and friend other players. Eventually I'd like to add a "friend area" for chatting and hanging out and more games.
 
-It's also fully responsive using **Bootstrap** so you can play on any practically any screen size.
+It's also fully responsive using [Bootstrap](https://getbootstrap.com/docs/3.4/getting-started/) so you can play on any practically any screen size.
 
 ## Visuals
 
