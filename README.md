@@ -26,7 +26,7 @@ Checkout the *images/* folder for more screenshots!
 
 ### Prerequisites
 
-You will need [Python 3.9.1](https://www.python.org/downloads/release/python-391/) and a text editor.
+You will need [Python 3.9.1](https://www.python.org/downloads/release/python-391/) and a text editor to start.
 
 ## Installation
 
