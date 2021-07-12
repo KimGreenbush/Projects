@@ -26,7 +26,7 @@ Checkout the [images](images) folder for more screenshots!
 
 ### Prerequisites
 
-You will need [Python 3.9.1](https://www.python.org/downloads/release/python-391/) and a text editor to start.
+You will need [Python 3.9.1](https://www.python.org/downloads/release/python-391/), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), and a text editor to start.
 
 ## Installation
 
