@@ -1,5 +1,5 @@
 from django.test import TestCase
-from ..models import Player
+from apps.Arcade.models import Player
 import bcrypt
 
 def create_test_player(username="Kimberley", email="test@test.com", password="Secure123", pass_confirm="Secure123"):
