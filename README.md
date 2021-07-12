@@ -16,7 +16,7 @@ It's also fully responsive using **Bootstrap** so you can play on any practicall
 
 ## Visuals
 
-Checkout the *images/* folder for more screenshots!
+Checkout the [images](images) folder for more screenshots!
 
 ![Welcome to the Arcade landing page](images/landing.png)
 ![player dashboards](images/dashboard.png)
