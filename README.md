@@ -56,6 +56,13 @@ There are two test modules: one for login/registration validation and one for vi
     py manage.py test apps/Arcade/tests
 ```
 
+
+## Future
+
+- Friend area with chat box
+- Add Tetris!
+- mobile compatibility 
+
 ## Contributing and Acknowledgments
 
 Special acknowledgment to [Ania Kubow](https://github.com/kubowania) for the Javascript game tutorials.
